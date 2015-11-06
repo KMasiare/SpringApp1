@@ -58,7 +58,7 @@ public class BookDaoImpl implements BookDao {
 		
 		for (BookEntity book : ALL_BOOKS) {
 			BookTo bookTo = mapper.map(book);
-			if (bookTo.getAuthors().equals(author)) {
+			if (bookTo.getAuthors().equalsIgnoreCase(author)) {
 				books.add(bookTo);
 			}
 		}

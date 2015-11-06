@@ -27,7 +27,7 @@ public class BookTo implements IdAware {
 		if (authors == null) {
 			if (other.authors != null)
 				return false;
-		} else if (!authors.equals(other.authors))
+		} else if (!authors.equalsIgnoreCase(other.authors))
 			return false;
 		if (id == null) {
 			if (other.id != null)

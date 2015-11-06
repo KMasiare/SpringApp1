@@ -34,6 +34,27 @@ public class BookDaoImplTest {
 		Assert.assertEquals(books.get(0), book);
 	}	
 
+	@Test
+	public void testFindBookByTitleIgnoreCase() {
+		// given
+		BookDaoImpl bookDaoImpl = new BookDaoImpl();
+		BookTo book = new BookTo(5L, "Pan Samochodzik i Fantomas", "Zbigniew Nienacki");
+		// when
+		List<BookTo> books = bookDaoImpl.findBookByTitle("Pan SAMOCHODZIK i Fantomas");
+		// then
+		Assert.assertEquals(books.get(0), book);
+	}
+	
+	@Test
+	public void testFindBookByAuthorIgnoreCase() {
+		// given
+		BookDaoImpl bookDaoImpl = new BookDaoImpl();
+		BookTo book = new BookTo(5L, "Pan Samochodzik i Fantomas", "Zbigniew Nienacki");
+		// when
+		List<BookTo> books = bookDaoImpl.findBooksByAuthor("ZBIGNIEW Nienacki");
+		// then
+		Assert.assertEquals(books.get(0), book);
+	}	
 }
 
 //ALL_BOOKS.add(mapper.map(new BookTo(5L, "Pan Samochodzik i Fantomas", "Zbigniew Nienacki")));
